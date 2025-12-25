@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+  <!-- Main Authentication Container -->
+    <div id="auth-container" class="auth-container">
+
+        <!-- Header: Logo/Title & Tab Switcher -->
+        <div class="auth-header">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+            </svg>
+            <h1>E-Shop Profile</h1>
+            <p>Access your personalized shopping experience.</p>
+
+            <!-- Tab Switcher -->
+            <div class="tab-switcher">
+                <!-- Initial state uses 'tab-active' and 'tab-inactive' classes -->
+                <button id="show-login" class="tab-active">Login</button>
+                <button id="show-signup" class="tab-inactive">Sign Up</button>
+            </div>
+        </div>
+
+        <!-- Form Content Area -->
+        <div class="form-content">
+
+            <!-- Loading Spinner -->
+            <div id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Loading...</p>
+            </div>
+
+            <!-- Profile View (Hidden initially) -->
+            <div id="profile-view" class="profile-view" style="display: none;">
+                <h2>Welcome Back, <span id="profile-username">User</span>!</h2>
+                
+                <div class="user-id-box">
+                    <p>User ID (for demo purposes):</p>
+                    <code id="profile-user-id"></code>
+                </div>
+
+                <div class="account-details">
+                    <p class="title">Your Account Details:</p>
+                    <div class="detail-row">
+                        <span>Username:</span>
+                        <span id="display-username">N/A</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Email:</span>
+                        <span id="display-email">N/A</span>
+                    </div>
+                </div>
+
+                <button id="logout-button">Logout</button>
+            </div>
+
+
+            <!-- Login Form -->
+            <form id="login-form" class="auth-form">
+                <h2>Login to your Account</h2>
+
+                <!-- Email/Username Input -->
+                <div class="form-group">
+                    <label for="login-email">Email / Username</label>
+                    <input type="text" id="login-email" placeholder="e.g. your@email.com" required>
+                </div>
+
+                <!-- Password Input -->
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password" required>
+                </div>
+
+                <div id="login-message" class="message-box" style="display: none;"></div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="login-submit-btn" class="submit-btn">
+                    Sign In
+                </button>
+            </form> 
+
+            <!-- Signup Form (Hidden initially) -->
+            <form id="signup-form" class="auth-form" style="display: none;">
+                <h2>Create a new Account</h2>
+
+                <!-- Username Input -->
+                <div class="form-group">
+                    <label for="signup-username">Username</label>
+                    <input type="text" id="signup-username" placeholder="Choose a username" required>
+                </div>
+
+                <!-- Email Input -->
+                <div class="form-group">
+                    <label for="signup-email">Email Address</label>
+                    <input type="email" id="signup-email" placeholder="e.g. your@email.com" required>
+                </div>
+
+                <!-- Password Input -->
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" placeholder="Must be 6+ characters" required>
+                </div>
+
+                <div id="signup-message" class="message-box" style="display: none;"></div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="signup-submit-btn" class="submit-btn">
+                    Create Account
+                </button>
+            </form>
+
+        </div>
+
+        <!-- Custom Modal for Alerts (Replaces alert()) -->
+        <div id="custom-modal" style="display: none;">
+            <div>
+                <h3 id="modal-title"></h3>
+                <p id="modal-content"></p>
+                <button id="modal-close-btn">Close</button>
+            </div>
+        </div>
+
+    </div>
+
+    
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="../js/login.js"></script>
+</html>

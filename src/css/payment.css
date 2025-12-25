@@ -1,0 +1,45 @@
+h1{
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-style:italic;
+}
+
+body{
+    overflow: hidden;
+}
+.wrapper{
+    font-family: 'Poppins', sans-serif;
+    font-style:italic;
+    background: #f5f6fa;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.histories{
+    margin: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    height: 90%;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.2) #f5f6fa;
+}
+
+
+
+.card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cardDetails{
+    display: flex;
+    align-items: center;
+    gap:10px;
+}

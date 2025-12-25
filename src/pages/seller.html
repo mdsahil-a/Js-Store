@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard</title>
+    
+    <style>
+        /* General Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #1a1a1a;
+            font-size: 1.75rem;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Dashboard Summary Cards */
+        .dashboard-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-card h3 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .stat-card p {
+            font-size: 2.25rem;
+            font-weight: 600;
+            margin: 0.5rem 0 0 0;
+            color: #007bff;
+        }
+
+        /* Main Sections (Form & Table) */
+        .dashboard-section {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-section h2 {
+            margin-top: 0;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 1rem;
+        }
+
+        /* Add Product Form */
+        .product-form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            box-sizing: border-box; /* Important for padding to work correctly */
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 0.85rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+            width: fit-content; /* Don't stretch full width */
+        }
+
+        .form-submit-btn:hover {
+            background-color: #218838;
+        }
+
+        /* Order History Table */
+        .order-table-container {
+            overflow-x: auto; /* Allows table to scroll horizontally on small screens */
+        }
+
+        .order-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        .order-table th,
+        .order-table td {
+            border: 1px solid #ddd;
+            padding: 0.85rem 1rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .order-table th {
+            background-color: #f9f9f9;
+            font-weight: 600;
+        }
+
+        .order-table tbody tr:nth-child(even) {
+            background-color: #fdfdfd;
+        }
+
+        .order-table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .status {
+            font-weight: 600;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .status-completed {
+            color: #155724;
+            background-color: #d4edda;
+        }
+
+        .status-processing {
+            color: #004085;
+            background-color: #cce5ff;
+        }
+
+        .status-cancelled {
+            color: #721c24;
+            background-color: #f8d7da;
+        }
+
+
+
+        .toast{
+   height: 3rem;
+   width: 25rem;
+   position: absolute;
+
+   padding: 1rem;
+   top:50%;
+   left:50%;
+   transform:translate(-50%,-50%);
+   display: flex;
+   justify-content: space-between;
+   background-color:rgb(223, 236, 232);
+   align-items: center;
+   border-radius:10px;
+   box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+   font-size: 1.2rem;
+   animation :popUp 5s linear 1;
+
+
+        }
+
+        .toast span:last-child{
+            cursor: pointer;
+          
+            height: 40px;
+            width: 40px;
+            text-align: center;
+            line-height: 28px;
+            border-radius:10px;
+            background-color: white;
+            box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+   font-size: 25px;
+          
+        }   
+#delete:hover{
+    background-color: #ccafac;
+    color:white;
+
+ 
+
+}
+        #toastMessage{
+            font-weight: 600;
+           
+            height: 100%;
+            width: 90%;
+            text-align: center;
+            margin: auto 10px;
+            border-radius: 5px;
+            
+
+        }
+        .toast.hide{
+            display:none;
+        }
+
+        @keyframes  popUp{
+            0%{
+                top:40%;
+                opacity: 0;
+            }
+
+            50%{
+                  top:50%;
+                opacity: 1;
+
+            }
+            100%{
+                     top:50%;
+                opacity: 1;
+            }
+
+        }
+    </style>
+</head>
+<body>
+<div class="toast hide">
+<span  id="toastMessage">Product added successfully</span>
+<span id="delete">X</span>
+
+</div>
+
+    
+    <header>
+        <h1>Seller Dashboard</h1>
+    </header>
+
+    <main>
+        <section class="dashboard-summary">
+            <div class="stat-card">
+                <h3>Total Earnings</h3>
+                <p id="total-earnings">$0.00</p>
+            </div>
+            <div class="stat-card">
+                <h3>Total Orders</h3>
+                <p id="total-orders">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Products Listed</h3>
+                <p id="total-products">0</p>
+            </div>
+        </section>
+
+        <section class="dashboard-section">
+            <h2>Add a New Product</h2>
+            <div id="add-product-form" class="product-form">
+                <div class="form-group">
+                    <label for="product-name">Product Name</label>
+                    <input type="text" id="product-name" name="product-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-desc">Description</label>
+                    <textarea id="product-desc" name="product-desc" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-price">Price ($)</label>
+                    <input type="number" id="product-price" name="product-price" min="0.01" step="0.01" required>
+                    <label for="product-discount">Discount %</label>
+                    <input type="number" id="product-discount" name="product-price" min="0.01" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="product-image">Image URL</label>
+                    <input type="text" id="product-image" name="product-image" placeholder="https://example.com/image.png">
+                </div>
+
+                <button  class="form-submit-btn">Add Product</button>
+            </div>
+        </section>
+
+        <section class="dashboard-section">
+            <h2>Your Order History</h2>
+            <div class="order-table-container">
+                <table class="order-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Product(s)</th>
+                            <th>Total Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="order-history-body">
+                        <tr>
+                            <td colspan="5" style="text-align: center;">Loading orders...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+ 
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="../js/seller.js"></script>
+
+</body>
+</html>

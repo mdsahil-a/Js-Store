@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - FlowShop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link rel="stylesheet" href="../css/profilePage.css">
+</head>
+<body>
+
+    <div class="profile-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../../public/img1.jpg" alt="User Avatar" class="avatar">
+                <h3>jigyasa yadav</h3>
+                <p>jigyasa@example.com</p>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="./order.html"><i class="fas fa-box"></i> Order History</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Manage Addresses</a></li>
+                    <li><a href="payment.html"><i class="fas fa-credit-card"></i> Transactions</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Account Settings</a></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Dashboard</h1>
+                <p>Welcome back, Sahil! Here's a quick overview of your account.</p>
+            </header>
+
+            <section class="content-section" id="order-history">
+                <h2>Recent Orders</h2>
+                <div class="order-list">
+                    <div class="order-item">
+                        <div class="order-details">
+                            <p><strong>Order ID:</strong> #NP123456</p>
+                            <p><strong>Date:</strong> October 15, 2025</p>
+                            <p><strong>Total:</strong> NPR 4,500.00</p>
+                            <p><strong>Status:</strong> <span class="status shipped">Shipped</span></p>
+                        </div>
+                        <div class="order-actions">
+                            <a href="#" class="btn">View Details</a>
+                            <a href="#" class="btn btn-secondary">Track Order</a>
+                        </div>
+                    </div>
+                    <div class="order-item">
+                        <div class="order-details">
+                            <p><strong>Order ID:</strong> #NP123450</p>
+                            <p><strong>Date:</strong> September 28, 2025</p>
+                            <p><strong>Total:</strong> NPR 2,100.00</p>
+                            <p><strong>Status:</strong> <span class="status delivered">Delivered</span></p>
+                        </div>
+                        <div class="order-actions">
+                            <a href="#" class="btn">View Details</a>
+                            <a href="#" class="btn btn-secondary">Leave Review</a>
+                        </div>
+                    </div>
+                     <div class="order-item">
+                        <div class="order-details">
+                            <p><strong>Order ID:</strong> #NP123445</p>
+                            <p><strong>Date:</strong> September 10, 2025</p>
+                            <p><strong>Total:</strong> NPR 850.00</p>
+                            <p><strong>Status:</strong> <span class="status cancelled">Cancelled</span></p>
+                        </div>
+                        <div class="order-actions">
+                            <a href="#" class="btn">View Details</a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+        <a href="../../index.html" class="inline-block mt-8 text-indigo-600 dark:text-indigo-400 font-medium hover:underline smooth-transition">
+                    &larr; Continue Shopping
+                </a>
+    </div>
+
+</body>
+</html>

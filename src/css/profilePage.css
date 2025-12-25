@@ -1,0 +1,230 @@
+
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --background-color: #f4f7f6;
+            --surface-color: #ffffff;
+            --text-color: #333;
+            --border-color: #e9ecef;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            --border-radius: 8px;
+        }
+
+        /* --- Basic Reset & Typography --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            margin-top: 0;
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        /* --- Main Profile Container --- */
+        .profile-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 40px auto;
+            background: var(--surface-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        /* --- Sidebar Navigation --- */
+        .sidebar {
+            width: 260px;
+            background-color: #f8f9fa;
+            border-right: 1px solid var(--border-color);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 3px solid var(--primary-color);
+        }
+
+        .sidebar-header h3 {
+            margin: 10px 0 5px;
+        }
+
+        .sidebar-header p {
+            font-size: 0.9em;
+            color: var(--secondary-color);
+            margin: 0;
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-nav li a {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .sidebar-nav i {
+            margin-right: 12px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .sidebar-nav li.active a,
+        .sidebar-nav li a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* --- Main Content Area --- */
+        .main-content {
+            flex-grow: 1;
+            padding: 30px;
+        }
+
+        .main-header {
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        /* --- Content Sections (e.g., Order History) --- */
+        .content-section {
+            background: var(--surface-color);
+        }
+
+        .content-section h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .order-list .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .order-list .order-item:hover {
+            box-shadow: var(--shadow);
+        }
+
+        .order-details p {
+            margin: 5px 0;
+            font-size: 0.95em;
+        }
+        
+        .order-details p strong {
+            color: #555;
+        }
+
+        .status {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+            color: white;
+        }
+
+        .status.shipped { background-color: var(--warning-color); }
+        .status.delivered { background-color: var(--success-color); }
+        .status.cancelled { background-color: #dc3545; }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            text-align: center;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .order-actions a {
+            margin-left: 10px;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .profile-container {
+                flex-direction: column;
+                margin: 20px;
+            }
+
+            .sidebar {
+                width: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .order-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .order-actions {
+                margin-top: 15px;
+                width: 100%;
+            }
+
+            .order-actions a {
+                margin-left: 0;
+                margin-right: 10px;
+            }
+        }

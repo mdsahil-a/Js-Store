@@ -1,1 +1,1 @@
-# Js-Store
+# Jsstore-frontend

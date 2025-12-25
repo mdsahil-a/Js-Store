@@ -1,0 +1,54 @@
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a; /* Light mode background */
+        }
+
+        /* Dark Mode styles */
+        .dark body {
+            background-color: #1a1a2e;
+        }
+
+        /* Gradient button style */
+        .btn-premium {
+            background-image: linear-gradient(to right, #4a00e0, #8e2de2);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 15px 0 rgba(74, 0, 224, 0.4);
+        }
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px 0 rgba(142, 45, 226, 0.5);
+        }
+
+        /* Animation for removing an item from the cart */
+        .item-remove {
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out, max-height 0.5s ease-in-out;
+            opacity: 1;
+            transform: scale(1);
+            max-height: 200px;
+        }
+        .item-removing {
+            opacity: 0;
+            transform: scale(0.9);
+            max-height: 0;
+        }
+        
+        /* Smooth transition for other interactions */
+        .smooth-transition {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Custom styles for quantity input */
+        .quantity-btn {
+             background-color: #e0e7ff; /* Light indigo */
+        }
+        .dark .quantity-btn {
+             background-color: #312e81; /* Dark indigo */
+        }
+        .quantity-btn:hover {
+             background-color: #c7d2fe;
+        }
+        .dark .quantity-btn:hover {
+            background-color: #3730a3;
+        }
+ 

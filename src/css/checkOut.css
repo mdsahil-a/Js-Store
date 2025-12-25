@@ -1,0 +1,253 @@
+
+        /* --- Google Fonts Import --- */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        /* --- CSS Variables --- */
+        :root {
+            --primary-color: #5a3fff;
+            --primary-light: #f4f2ff;
+            --background-color: #e9e9f0;
+            --card-background: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #5f5f6e;
+            --border-color: #d8d8e0;
+        }
+
+        /* --- Global Styles & Scrollbar --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        /* Custom Scrollbar for a premium feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #aaa;
+        }
+
+        /* --- Main Checkout Container --- */
+        .checkout-container {
+            display: flex;
+            background-color: var(--card-background);
+            max-width: 1100px;
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Checkout Form (Left Side) --- */
+        .form-container {
+            flex: 3;
+            padding: 3rem;
+            overflow-y: auto;
+        }
+
+        .form-container h1 {
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .form-section {
+            margin-bottom: 2rem;
+        }
+
+        .form-section h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            background-color: #fafafa;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(90, 63, 255, 0.15);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        /* --- Order Summary (Right Side) --- */
+        .summary-container {
+            flex: 2;
+            background-color: var(--primary-light);
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .summary-container h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* --- KEY STYLE for multiple items --- */
+        .order-items-list {
+            max-height: 300px; /* Limits the height */
+            overflow-y: auto;   /* Adds scrollbar if content overflows */
+            padding-right: 1rem; /* Space for scrollbar */
+            margin-right: -1rem; /* Hides the extra space if no scrollbar */
+        }
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .order-item img {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .item-details {
+            flex-grow: 1;
+            line-height: 1.4;
+        }
+        .item-details p {
+            font-weight: 600;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        .item-details span {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .item-price {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .summary-calculation {
+            margin-top: auto; /* Pushes to the bottom */
+            padding-top: 1.5rem;
+            border-top: 1px solid #dcd6ff;
+        }
+
+        .promo-code {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .promo-code input {
+            flex-grow: 1;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.75rem;
+        }
+        .promo-code button {
+            padding: 0 1rem;
+            border: none;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        
+        .cost-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .cost-row {
+            display: flex;
+            justify-content: space-between;
+        }
+        .cost-row.total {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 0.75rem;
+        }
+        .cost-row span:first-child {
+            color: var(--text-secondary);
+        }
+        .cost-row.total span:first-child {
+            color: var(--text-primary);
+        }
+
+        /* --- Submit Button --- */
+        .pay-btn {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 12px;
+            background: var(--primary-color);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            box-shadow: 0 5px 20px rgba(90, 63, 255, 0.3);
+        }
+        .pay-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 960px) {
+            .checkout-container { flex-direction: column; }
+            .form-container, .summary-container { padding: 2rem; }
+            .summary-calculation { margin-top: 2rem; }
+        }
+        @media (max-width: 480px) {
+            body { padding: 0; background-color: var(--card-background); }
+            .checkout-container { border-radius: 0; box-shadow: none; }
+            .form-container, .summary-container { padding: 1.5rem; }
+            h1 { font-size: 1.75rem; }
+            .form-row { flex-direction: column; gap: 0; }
+        }

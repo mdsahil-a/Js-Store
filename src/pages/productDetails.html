@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail Page</title>
+    <link rel="stylesheet" href="../css/productDetails.css">
+</head>
+<body>
+
+    <div class="product-container">
+        
+        <div class="product-images">
+            <img id="main-image" src="../../public/product.jpg" alt="Main Product Image">
+            <div class="thumbnail-gallery">
+                <img class="thumbnail active" src="../../public/img2.jpg" alt="Product Thumbnail 1" onclick="changeImage('https://via.placeholder.com/600x600.png?text=Main+Product+Image')">
+                <img class="thumbnail" src="../../public/img2.jpg" alt="Product Thumbnail 2" onclick="changeImage('https://via.placeholder.com/600x600.png?text=View+2')">
+                <img class="thumbnail" src="../../public/img1.jpg" alt="Product Thumbnail 3" onclick="changeImage('https://via.placeholder.com/600x600.png?text=View+3')">
+                <img class="thumbnail" src="../../public/img3.jpg" alt="Product Thumbnail 4" onclick="changeImage('https://via.placeholder.com/600x600.png?text=View+4')">
+            </div>
+        </div>
+
+        <div class="product-details">
+            <h1 class="product-title">Sample Product Name</h1>
+            <p class="product-price">$99.99</p>
+            
+            <p class="product-description">
+                This is a detailed description of the sample product. It highlights all the key features, benefits, and specifications. It's designed to give the customer all the information they need to make a purchasing decision.
+            </p>
+
+            <div class="product-options">
+                <label for="size">Size:</label>
+                <select name="size" id="size">
+                    <option value="s">Small</option>
+                    <option value="m" selected>Medium</option>
+                    <option value="l">Large</option>
+                    <option value="xl">X-Large</option>
+                </select>
+            </div>
+
+            <div class="product-actions">
+                <button class="btn btn-add-to-cart">Add to Cart</button>
+                <button class="btn btn-buy-now">Buy Now</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
